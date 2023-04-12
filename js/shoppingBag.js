@@ -8,15 +8,17 @@ export default class ShoppingBag {
     this.#ctx = this.#canvas.getContext("2d");
 
     this.#canvas.style.position = "absolute";
-    this.#canvas.style.left = "200px";
-    this.#canvas.style.top = "590px";
+
     this.#canvas.width = 460;
     this.#canvas.height = 350;
     this.#ctx.font = "15px GmarketSansMedium, serif";
   }
+
+  get canvas() {
+    return this.#canvas;
+  }
   createText = function (shoppingList) {
     console.log(shoppingList);
-
     this.#ctx.clearRect(0, 0, 450, 1000);
     for (const i in shoppingList) {
       const s = shoppingList[i];

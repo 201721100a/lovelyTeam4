@@ -49,14 +49,13 @@ var menuList = [
 let shoppingList = [];
 let missionList = [];
 
-let numbers = [4, 2, 1, 3];
-numbers.sort((a, b) => b - a);
-console.log(numbers); // [4, 3, 2, 1]
 let sort = function (list) {
   list.sort((a, b) => b.id - a.id);
 };
 
 let compareMission = function () {
+  sort(shoppingList);
+  sort(missionList);
   this.tmpList = JSON.parse(JSON.stringify(shoppingList));
   console.log(missionList);
   console.log("mission c출력");
@@ -84,11 +83,10 @@ let compareMission = function () {
     }
   }
   if (clear === 4) {
-    console.log("미션 성공");
+    return true;
   } else {
-    console.log("미션 실패");
+    return false;
   }
-  alert("메인으로 이동");
 };
 
 export { menuList, shoppingList, missionList, compareMission };

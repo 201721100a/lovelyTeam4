@@ -16,6 +16,5 @@ for (let i = 0; i < 45; i++) {
 }
 //stage = 0;
 window.onload = () => {
-  const kiosk = new Kiosk();
-  //const mission = new Mission();
+  const mission = new Mission();
 };

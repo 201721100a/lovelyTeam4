@@ -31,7 +31,7 @@ export default class Kiosk {
     this.#canvas.style.left = "200px";
     this.#canvas.style.top = "0";
     this.#canvas.style.position = "absolute";
-    this.#list = document.getElementById("list");
+    // this.#list = document.getElementById("list");
     this.#nlogo = document.getElementById("nlogo");
     this.#logo2 = document.getElementById("logo2");
     this.#payment = document.getElementById("payment");
@@ -39,7 +39,7 @@ export default class Kiosk {
     this.#ctx.fillStyle = "white";
     this.#ctx.fillRect(0, 0, 600, 700);
 
-    this.#ctx.drawImage(this.#list, 15, 590, 450, 90);
+    //this.#ctx.drawImage(this.#list, 15, 590, 450, 90);
     this.#ctx.drawImage(this.#logo2, 5, 5, 585, 85);
     this.#ctx.drawImage(this.#nlogo, 5, 5, 90, 90);
     this.#ctx.drawImage(this.#payment, 490, 590, 100, 90);
@@ -59,7 +59,12 @@ export default class Kiosk {
     this.drawItem(this.#menuIndex);
     this.#canvas.onclick = this.clickHandler.bind(this);
 
+    let div = document.createElement("div");
+    div.id = "listDiv";
     this.#shoppingbag = new ShoppingBag();
+
+    div.appendChild(this.#shoppingbag.canvas);
+    document.body.append(div);
   }
 
   // set createCanvas(callback){
@@ -99,7 +104,7 @@ export default class Kiosk {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log("x : " + x + " y : " + y);
-
+    this.#shoppingbag.createText();
     for (let i = 0; i < 5; i++) {
       if (
         15 <= x &&
@@ -162,6 +167,8 @@ export default class Kiosk {
       this.#canvas.width,
       480
     );
+    this.#ctx.fillStyle = "white";
+    this.#ctx.fillRect(this.sideBar.x, this.sideBar.y, this.#canvas.width, 480);
     this.#ctx.drawImage(this.#menuSide[index], 0, 100, 585, 480);
   }
 
@@ -196,6 +203,10 @@ export default class Kiosk {
 
   addShoppingList(item) {
     var b1 = item;
+    if (shoppingList.length == 6) {
+      swal("장바구니가 꽉찼습니다.", "더이상 추가할 수 없습니다.", "warning");
+      return;
+    }
     console.log(b1);
     if (shoppingList.some((x) => x.name == b1.name) == false)
       shoppingList.push(item);
