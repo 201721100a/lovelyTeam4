@@ -3,6 +3,8 @@
 import { menuList, shoppingList, compareMission } from "List";
 import ShoppingBag from "ShoppingBag";
 import PaymentPage from "PaymentPage";
+import Timer from "Timer";
+import Mission from "Mission";
 export default class Kiosk {
   #canvas;
   #ctx;
@@ -15,6 +17,7 @@ export default class Kiosk {
   #logo2;
   #payment;
   #shoppingbag;
+  #paymentPage;
 
   constructor() {
     this.#canvas = document.createElement("canvas");
@@ -28,7 +31,6 @@ export default class Kiosk {
     this.#canvas.style.left = "200px";
     this.#canvas.style.top = "0";
     this.#canvas.style.position = "absolute";
-
     this.#list = document.getElementById("list");
     this.#nlogo = document.getElementById("nlogo");
     this.#logo2 = document.getElementById("logo2");
@@ -60,6 +62,18 @@ export default class Kiosk {
     this.#shoppingbag = new ShoppingBag();
   }
 
+  // set createCanvas(callback){
+  //   this.#createCanvas = callback;
+  // }
+
+  // createInstance(){
+  //   if(this.#createCanvas){
+  //     const paymentPage = this.#createCanvas("PaymentPage");
+  //     const shoppingBag = this.#createCanvas("ShoppingBag");
+  //     const timer =this.#createCanvas("Timer");
+  //     }
+
+  // }
   icon = {
     x: 210,
     y: 110,
@@ -118,9 +132,6 @@ export default class Kiosk {
             this.#page = "set";
             this.#menuIndex = 36;
             this.drawItem(i);
-
-            compareMission();
-
             break;
         }
       }
@@ -138,11 +149,10 @@ export default class Kiosk {
           this.#shoppingbag.createText(shoppingList);
         }
       }
+    this.#shoppingbag.createText(shoppingList);
 
-    if (490 <= x && x <= 580 && 590 <= y && y <= 680) {
-      console.log("new PaymentPage");
-      new PaymentPage();
-    }
+    if (490 <= x && x <= 590 && 590 <= y && y <= 680)
+      this.#paymentPage = new PaymentPage();
   }
 
   drawSideBar(index) {
