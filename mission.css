@@ -1,0 +1,15 @@
+body {
+    width: 1200px;
+
+    position: absolute;
+    top: 20%;
+
+}
+
+.posi {
+
+    position: absolute;
+    left: 820px;
+    top: 500px;
+    font-size: 40px;
+}

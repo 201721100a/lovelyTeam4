@@ -1,0 +1,31 @@
+.mainBack {
+
+    background: url("img/main.png");
+    width: 1200px;
+    height: 800px;
+    background-repeat: no-repeat;
+
+}
+
+.startbtn {
+    position: absolute;
+    width: 250px;
+    height: 70px;
+    top: 500px;
+    left: 540px;
+
+    background: url("img/시작.png");
+    background-size: cover;
+}
+
+.helpbtn {
+    position: absolute;
+    width: 250px;
+    height: 70px;
+    top: 600px;
+    left: 540px;
+
+
+    background: url("img/도움말.png");
+    background-size: cover;
+}

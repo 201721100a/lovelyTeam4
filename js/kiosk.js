@@ -1,7 +1,8 @@
 /**@type{HTMLCanvasElement} */
 
-import { menuList, shoppingList } from "List";
+import { menuList, shoppingList, compareMission } from "List";
 import ShoppingBag from "ShoppingBag";
+import PaymentPage from "PaymentPage";
 export default class Kiosk {
   #canvas;
   #ctx;
@@ -32,13 +33,17 @@ export default class Kiosk {
     this.#nlogo = document.getElementById("nlogo");
     this.#logo2 = document.getElementById("logo2");
     this.#payment = document.getElementById("payment");
+
+    this.#ctx.fillStyle = "white";
+    this.#ctx.fillRect(0, 0, 600, 700);
+
     this.#ctx.drawImage(this.#list, 15, 590, 450, 90);
     this.#ctx.drawImage(this.#logo2, 5, 5, 585, 85);
     this.#ctx.drawImage(this.#nlogo, 5, 5, 90, 90);
     this.#ctx.drawImage(this.#payment, 490, 590, 100, 90);
 
     this.#menuSide = [];
-    for (let x = 1; x < 6; x++) {
+    for (let x = 0; x < 5; x++) {
       this.#menuSide[x] = document.getElementById(`menuSide${x}`);
     }
 
@@ -49,6 +54,7 @@ export default class Kiosk {
       this.#menu[x] = document.getElementById(`${x}`);
     }
 
+    this.drawItem(this.#menuIndex);
     this.#canvas.onclick = this.clickHandler.bind(this);
 
     this.#shoppingbag = new ShoppingBag();
@@ -91,27 +97,30 @@ export default class Kiosk {
           case 0:
             this.#page = "burger";
             this.#menuIndex = 0;
-            this.drawItem(1);
+            this.drawItem(i);
             break;
           case 1:
             this.#page = "side";
             this.#menuIndex = 9;
-            this.drawItem(2);
+            this.drawItem(i);
             break;
           case 2:
             this.#page = "drink";
             this.#menuIndex = 18;
-            this.drawItem(3);
+            this.drawItem(i);
             break;
           case 3:
             this.#page = "dessert";
             this.#menuIndex = 27;
-            this.drawItem(4);
+            this.drawItem(i);
             break;
           case 4:
             this.#page = "set";
             this.#menuIndex = 36;
-            this.drawItem(5);
+            this.drawItem(i);
+
+            compareMission();
+
             break;
         }
       }
@@ -129,6 +138,11 @@ export default class Kiosk {
           this.#shoppingbag.createText(shoppingList);
         }
       }
+
+    if (490 <= x && x <= 580 && 590 <= y && y <= 680) {
+      console.log("new PaymentPage");
+      new PaymentPage();
+    }
   }
 
   drawSideBar(index) {

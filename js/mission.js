@@ -24,6 +24,7 @@ export default class Mission {
     this.randomMenuList = [];
     this.creatRandomMission();
     let missionImg = document.getElementById("imt");
+    // console.log(this.randomMenuList);
     this.please();
 
     this.ctx.drawImage(missionImg, 230, 470, 120, 120);
@@ -32,29 +33,53 @@ export default class Mission {
     this.sideNum = Math.floor(Math.random() * 9 + 9);
     this.juiceNum = Math.floor(Math.random() * 18 + 18);
     this.missionNum = Math.floor(Math.random() * 4 + 1);
-    this.tmpList = JSON.parse(JSON.stringify(shoppingList));
-    this.creatRandomMission();
+
+    // this.creatRandomMission();
+    this.canvas.onclick = this.missionClickHandler.bind(this);
+  }
+
+  missionClickHandler(e) {
+    let x = e.offsetX;
+    let y = e.offsetY;
+
+    this.ctx.clearRect(0, 0, 600, 700);
+    console.log(x, y);
+    console.log("random arr : " + this.randomMenuList);
+    document.body.removeChild(this.canvas);
+    this.canvas.style.left = "800px";
+    this.canvas.style.top = "100px";
+    document.body.append(this.canvas);
+
+    this.printMission();
+
+    ///temp
+    this.compareMission();
+    this.draw();
   }
   printMission() {
     this.ctx.font = "15px GmarketSansMedium, serif";
     this.ctx.fillText("제한 시간  2분안에", 20, 50);
-    this.ctx.fillText(this.randomMenuList[0].name, 20, 70);
-    this.ctx.fillText(this.randomMenuList[0].index + " 개,", 150, 70);
-    this.ctx.fillText(this.randomMenuList[1].name, 20, 90);
-    this.ctx.fillText(this.randomMenuList[1].index + " 개,", 150, 90);
-    this.ctx.fillText(this.randomMenuList[2].name, 20, 110);
-    this.ctx.fillText(this.randomMenuList[2].index + " 개", 150, 110);
+    for (let idx in this.randomMenuList) {
+      this.ctx.fillText(this.randomMenuList[idx].name, 20, 70 + 20 * idx);
+      this.ctx.fillText(
+        this.randomMenuList[idx].index + " 개,",
+        150,
+        70 + 20 * idx
+      );
+    }
   }
   please() {
     this.ctx.font = "18px GmarketSansMedium, serif";
     this.ctx.fillText("나 아직!! 배고파ㅠㅠ", 200, 270);
     this.ctx.fillText("뉴렉버거 먹고싶은데!", 200, 300);
-    this.ctx.fillText(this.randomMenuList[0].name, 200, 350);
-    this.ctx.fillText(this.randomMenuList[0].index + " 개,", 340, 350);
-    this.ctx.fillText(this.randomMenuList[1].name, 200, 380);
-    this.ctx.fillText(this.randomMenuList[1].index + " 개,", 340, 380);
-    this.ctx.fillText(this.randomMenuList[2].name, 200, 410);
-    this.ctx.fillText(this.randomMenuList[2].index + " 개", 340, 410);
+    for (let idx in this.randomMenuList) {
+      this.ctx.fillText(this.randomMenuList[idx].name, 200, 350 + 30 * idx);
+      this.ctx.fillText(
+        this.randomMenuList[idx].index + " 개",
+        340,
+        350 + 30 * idx
+      );
+    }
     this.ctx.fillText("이렇게 사다줄 수 있엉?", 200, 450);
   }
   draw() {
@@ -97,13 +122,14 @@ export default class Mission {
   }
 
   compareMission() {
+    this.tmpList = JSON.parse(JSON.stringify(shoppingList));
     console.log(this.randomMenuList);
     console.log("mission c출력");
     console.log(this.tmpList);
     console.log("list c출력");
 
     let clear = 0;
-    for (let m of this.missionList) {
+    for (let m of this.randomMenuList) {
       console.log(m.name);
       for (let i in this.tmpList) {
         console.log(this.tmpList[i].name);
@@ -121,8 +147,13 @@ export default class Mission {
     }
     if (clear === 4) {
       console.log("미션 성공");
+    } else {
+      console.log("미션 실패");
     }
     alert("메인으로 이동");
-    //window.location.href = "/main.html";
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const count = parseInt(urlParams.get("count"));
+    window.location.href = "/main.html?count=1";
   }
 }

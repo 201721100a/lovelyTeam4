@@ -1,8 +1,11 @@
 import Kiosk from "Kiosk";
 import Mission from "Mission";
 import PaymentPage from "PaymentPage";
+import PaymentType from "PaymentType";
 import Timer from "Timer";
 // import
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
 
 for (let i = 0; i < 45; i++) {
   let idx = `${i}`;
@@ -11,14 +14,8 @@ for (let i = 0; i < 45; i++) {
   img.id = idx;
   document.body.append(img);
 }
-
+//stage = 0;
 window.onload = () => {
-  const misson = new Mission();
-  const paymentPage = new PaymentPage();
-  const timer = new Timer();
-  timer.drawTimer(2, 0);
-  timer.startTimer();
   const kiosk = new Kiosk();
+  //const mission = new Mission();
 };
-
-// document.body.append(kiosk.canvas);
