@@ -91,27 +91,27 @@ export default class Kiosk {
           case 0:
             this.#page = "burger";
             this.#menuIndex = 0;
-            this.drawItem(1);
+            this.drawItem(i);
             break;
           case 1:
             this.#page = "side";
             this.#menuIndex = 9;
-            this.drawItem(2);
+            this.drawItem(i);
             break;
           case 2:
             this.#page = "drink";
             this.#menuIndex = 18;
-            this.drawItem(3);
+            this.drawItem(i);
             break;
           case 3:
             this.#page = "dessert";
             this.#menuIndex = 27;
-            this.drawItem(4);
+            this.drawItem(i);
             break;
           case 4:
             this.#page = "set";
             this.#menuIndex = 36;
-            this.drawItem(5);
+            this.drawItem(i);
             break;
         }
       }

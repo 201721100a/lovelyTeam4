@@ -58,7 +58,7 @@ export default class PaymentType {
 
   draw() {
     this.#ctx.fillStyle = "black";
-    this.#ctx.globalAlpha = 0.5;
+    this.#ctx.globalAlpha = 0.5;   
     this.#ctx.fillRect(0, 0, 600, 700);
     this.#ctx.globalAlpha = 1;
     this.#ctx.drawImage(this.#cancelImg, 10, 150, 580, 380);

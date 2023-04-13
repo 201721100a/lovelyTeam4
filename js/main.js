@@ -15,9 +15,8 @@ for (let i = 0; i < 45; i++) {
 window.onload = () => {
   const misson = new Mission();
   const paymentPage = new PaymentPage();
-  const timer = new Timer();
+  // const timer = new Timer();
   timer.drawTimer(2, 0);
-  timer.startTimer();
   const kiosk = new Kiosk();
 };
 

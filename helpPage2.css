@@ -1,353 +1,323 @@
 container {
-    text-align : center;     /*글자 중앙 정렬*/
-    display: flex;           /*가로로 일렬 배치*/
-    justify-content: center; /*수평 중앙*/
-    align-items: center;     /*수직 중앙 -> container의 높이값이 있어야 적용됨*/
-    height : 45vh;          
-    left: 50px;
-    position: absolute;
-
+  text-align: center; /*글자 중앙 정렬*/
+  display: flex; /*가로로 일렬 배치*/
+  justify-content: center; /*수평 중앙*/
+  align-items: center; /*수직 중앙 -> container의 높이값이 있어야 적용됨*/
+  height: 45vh;
+  left: 50px;
+  position: absolute;
 }
 .btn1 {
-    background-image: url("image/next2.PNG");
-    position: absolute;
-    top: 740px;
-    font-size: 50px;
-    left: 560px;
-    z-index: 999;
-    background-size: 150px;
-    background-repeat: no-repeat;
-    width: 150px;
-    height: 120px;
+  background-image: url("img/main/next2.PNG");
+  position: absolute;
+  top: 740px;
+  font-size: 50px;
+  left: 420px;
+  z-index: 999;
+  background-size: 150px;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 120px;
 }
 .btn2 {
-    background-image: url("image/next.PNG");
-    position: absolute;
-    top: 740px;
-    font-size: 50px;
-    left: 1040px;
-    z-index: 999;
-    background-size: 150px;
-    background-repeat: no-repeat;
-    width: 150px;
-    height: 120px;    
+  background-image: url("img/main/next.PNG");
+  position: absolute;
+  top: 740px;
+  font-size: 50px;
+  left: 880px;
+  z-index: 999;
+  background-size: 150px;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 120px;
 }
-
 
 .pic {
-    width: 750px;
-    height: 875px;
-    background-image: url("./image/장바구니.png");
-    z-index: 999;
-    position: absolute;
-    left: 30%;
-    background-repeat: no-repeat;
-    background-size: 600px;
+  width: 750px;
+  height: 875px;
+  background-image: url("img/main/장바구니.png");
+  z-index: 999;
+  position: absolute;
+  left: 30%;
+  background-repeat: no-repeat;
+  background-size: 600px;
 }
-
 
 .icon {
-    left: 10px;
-    top: 130px;
-    width: 108px;         /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
-    height: 300px;
-    /* margin: 10px; */
-    position: relative;
-    background-color: transparent;
-    border: 5px solid black;
-    border:none;
+  left: 10px;
+  top: 130px;
+  width: 108px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 300px;
+  /* margin: 10px; */
+  position: relative;
+  background-color: transparent;
+  border: 5px solid black;
+  border: none;
 }
 
-
-.icon span{
-    position: absolute;  /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
-    background-color: orange;
-    font-size: 16px;
-    width: 200px;
-    color : #fff;
-    top : 120px;
-    text-align: center;
-    padding: 10px;
-    border: none;
-    left: 50%;                    /*중앙배치 : 왼쪽에서 50%위치*/
-    transform: translateX(-50%);  /*중앙배치 : X크기값을 50%만큼 이동*/
-    opacity: 0;                   /*이벤트설정 : 서서히 변하게 함*/
-    transition: 0.5s;             /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
-    visibility: hidden;          /*특정 요소 접촉시 이벤트 발생*/
-
+.icon span {
+  position: absolute; /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
+  background-color: orange;
+  font-size: 16px;
+  width: 200px;
+  color: #fff;
+  top: 120px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  left: 50%; /*중앙배치 : 왼쪽에서 50%위치*/
+  transform: translateX(-50%); /*중앙배치 : X크기값을 50%만큼 이동*/
+  opacity: 0; /*이벤트설정 : 서서히 변하게 함*/
+  transition: 0.5s; /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
 }
 
 .icon span:after {
-    content : '';             /*가상클래스 before, after는 무조건 content가 있어야 작동*/
-    position: absolute;       /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
-    background-color: transparent;
-    width : 10px;
-    height: 10px;
-    transform: rotate(45deg) translateX(-50%);  /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
-    top: 500px;
-    left: 50%;                                  /*1. 왼쪽에서 50%위치에 둔다.*/
-                                                /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
-
+  content: ""; /*가상클래스 before, after는 무조건 content가 있어야 작동*/
+  position: absolute; /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%); /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
+  top: 500px;
+  left: 50%; /*1. 왼쪽에서 50%위치에 둔다.*/
+  /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
 }
 
-.icon:hover span{
-    opacity: 1;
-    visibility: visible;     /*hover시 발생하ㅡㄴ 이벤트*/
-   
+.icon:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
 }
-
-
 
 .icon2 {
-    left: 120px;
-    width: 320px;         /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
-    height: 300px;
-    top: -170px;
-    /* margin: 10px; */
-    position: relative;
-    background-color: transparent;
-    border:none;
-
+  left: 120px;
+  width: 320px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 300px;
+  top: -170px;
+  /* margin: 10px; */
+  position: relative;
+  background-color: transparent;
+  border: none;
 }
 
-
-.icon2 span{
-    position: absolute;  /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
-    background-color: orange;
-    font-size: 16px;
-    width: 200px;
-    color : #fff;
-    top: 80px;
-    text-align: center;
-    padding: 10px;
-    border: none;
-    left: 50%;                    /*중앙배치 : 왼쪽에서 50%위치*/
-    transform: translateX(-50%);  /*중앙배치 : X크기값을 50%만큼 이동*/
-    opacity: 0;                   /*이벤트설정 : 서서히 변하게 함*/
-    transition: 0.5s;             /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
-    visibility: hidden;          /*특정 요소 접촉시 이벤트 발생*/
-
+.icon2 span {
+  position: absolute; /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
+  background-color: orange;
+  font-size: 16px;
+  width: 200px;
+  color: #fff;
+  top: 80px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  left: 50%; /*중앙배치 : 왼쪽에서 50%위치*/
+  transform: translateX(-50%); /*중앙배치 : X크기값을 50%만큼 이동*/
+  opacity: 0; /*이벤트설정 : 서서히 변하게 함*/
+  transition: 0.5s; /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
 }
 
 .icon2 span:after {
-    content : '';             /*가상클래스 before, after는 무조건 content가 있어야 작동*/
-    position: absolute;       /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
-    background-color: transparent;
-    width : 10px;
-    height: 10px;
-    transform: rotate(45deg) translateX(-50%);  /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
-    top: 500px;
-    left: 50%;                                  /*1. 왼쪽에서 50%위치에 둔다.*/
-                                                /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
-
+  content: ""; /*가상클래스 before, after는 무조건 content가 있어야 작동*/
+  position: absolute; /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%); /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
+  top: 500px;
+  left: 50%; /*1. 왼쪽에서 50%위치에 둔다.*/
+  /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
 }
 
-.icon2:hover span{
-    opacity: 1;
-    visibility: visible;     /*hover시 발생하ㅡㄴ 이벤트*/
-   
+.icon2:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
 }
 .icon3 {
-    left: 440px;
-    width: 150px;         /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
-    height: 300px;
-    top: -470px;
-    /* margin: 10px; */
-    position: relative;
-    background-color: transparent;
-    border: 5px solid black;
-    border:none;
-
+  left: 440px;
+  width: 150px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 300px;
+  top: -470px;
+  /* margin: 10px; */
+  position: relative;
+  background-color: transparent;
+  border: 5px solid black;
+  border: none;
 }
 
-
-.icon3 span{
-    position: absolute;  /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
-    background-color: orange;
-    font-size: 16px;
-    width: 200px;
-    color : #fff;
-    top : 100px;
-    text-align: center;
-    padding: 10px;
-    border: none;
-    left: 50%;                    /*중앙배치 : 왼쪽에서 50%위치*/
-    transform: translateX(-50%);  /*중앙배치 : X크기값을 50%만큼 이동*/
-    opacity: 0;                   /*이벤트설정 : 서서히 변하게 함*/
-    transition: 0.5s;             /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
-    visibility: hidden;          /*특정 요소 접촉시 이벤트 발생*/
-
+.icon3 span {
+  position: absolute; /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
+  background-color: orange;
+  font-size: 16px;
+  width: 200px;
+  color: #fff;
+  top: 100px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  left: 50%; /*중앙배치 : 왼쪽에서 50%위치*/
+  transform: translateX(-50%); /*중앙배치 : X크기값을 50%만큼 이동*/
+  opacity: 0; /*이벤트설정 : 서서히 변하게 함*/
+  transition: 0.5s; /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
 }
 
 .icon3 span:after {
-    content : '';             /*가상클래스 before, after는 무조건 content가 있어야 작동*/
-    position: absolute;       /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
-    background-color: transparent;
-    width : 10px;
-    height: 10px;
-    transform: rotate(45deg) translateX(-50%);  /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
-    left: 50%;                                  /*1. 왼쪽에서 50%위치에 둔다.*/
-                                                /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
-
+  content: ""; /*가상클래스 before, after는 무조건 content가 있어야 작동*/
+  position: absolute; /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%); /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
+  left: 50%; /*1. 왼쪽에서 50%위치에 둔다.*/
+  /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
 }
 
-.icon3:hover span{
-    opacity: 1;
-    visibility: visible;     /*hover시 발생하ㅡㄴ 이벤트*/
-   
+.icon3:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
 }
 
 .icon4 {
-    left: 300px;
-    width: 280px;         /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
-    height: 50px;
-    top: -390px;
-    /* margin: 10px; */
-    position: relative;
-    background-color: transparent;
-    border: 5px solid black;
-    border:none;
+  left: 300px;
+  width: 280px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 50px;
+  top: -390px;
+  /* margin: 10px; */
+  position: relative;
+  background-color: transparent;
+  border: 5px solid black;
+  border: none;
 }
 
-
-.icon4 span{
-    position: absolute;  /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
-    background-color: orange;
-    font-size: 16px;
-    width: 200px;
-    color : #fff;
-    top : 50px;
-    text-align: center;
-    padding: 10px;
-    border: none;
-    left: 50%;                    /*중앙배치 : 왼쪽에서 50%위치*/
-    transform: translateX(-50%);  /*중앙배치 : X크기값을 50%만큼 이동*/
-    opacity: 0;                   /*이벤트설정 : 서서히 변하게 함*/
-    transition: 0.5s;             /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
-    visibility: hidden;          /*특정 요소 접촉시 이벤트 발생*/
-
+.icon4 span {
+  position: absolute; /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
+  background-color: orange;
+  font-size: 16px;
+  width: 200px;
+  color: #fff;
+  top: 50px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  left: 50%; /*중앙배치 : 왼쪽에서 50%위치*/
+  transform: translateX(-50%); /*중앙배치 : X크기값을 50%만큼 이동*/
+  opacity: 0; /*이벤트설정 : 서서히 변하게 함*/
+  transition: 0.5s; /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
 }
 
 .icon4 span:after {
-    content : '';             /*가상클래스 before, after는 무조건 content가 있어야 작동*/
-    position: absolute;       /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
-    background-color: transparent;
-    width : 10px;
-    height: 10px;
-    transform: rotate(45deg) translateX(-50%);  /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
-    left: 50%;                                  /*1. 왼쪽에서 50%위치에 둔다.*/
-                                                /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
-
+  content: ""; /*가상클래스 before, after는 무조건 content가 있어야 작동*/
+  position: absolute; /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%); /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
+  left: 50%; /*1. 왼쪽에서 50%위치에 둔다.*/
+  /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
 }
 
-.icon4:hover span{
-    opacity: 1;
-    visibility: visible;     /*hover시 발생하ㅡㄴ 이벤트*/
-   
+.icon4:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
 }
 
 .icon5 {
-    left: 440px;
-    width: 130px;         /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
-    height: 110px;
-    top: -390px;
-    /* margin: 10px; */
-    position: relative;
-    background-color: transparent;
-    border: 5px solid black;
-    border:none;
+  left: 440px;
+  width: 130px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 110px;
+  top: -390px;
+  /* margin: 10px; */
+  position: relative;
+  background-color: transparent;
+  border: 5px solid black;
+  border: none;
 }
 
-
-.icon5 span{
-    position: absolute;  /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
-    background-color: orange;
-    font-size: 16px;
-    width: 200px;
-    color : #fff;
-    top : -100px;
-    text-align: center;
-    padding: 10px;
-    border: none;
-    left: 50%;                    /*중앙배치 : 왼쪽에서 50%위치*/
-    transform: translateX(-50%);  /*중앙배치 : X크기값을 50%만큼 이동*/
-    opacity: 0;                   /*이벤트설정 : 서서히 변하게 함*/
-    transition: 0.5s;             /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
-    visibility: hidden;          /*특정 요소 접촉시 이벤트 발생*/
-
+.icon5 span {
+  position: absolute; /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
+  background-color: orange;
+  font-size: 16px;
+  width: 200px;
+  color: #fff;
+  top: -100px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  left: 50%; /*중앙배치 : 왼쪽에서 50%위치*/
+  transform: translateX(-50%); /*중앙배치 : X크기값을 50%만큼 이동*/
+  opacity: 0; /*이벤트설정 : 서서히 변하게 함*/
+  transition: 0.5s; /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
 }
 
 .icon5 span:after {
-    content : '';             /*가상클래스 before, after는 무조건 content가 있어야 작동*/
-    position: absolute;       /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
-    background-color: transparent;
-    width : 10px;
-    height: 10px;
-    transform: rotate(45deg) translateX(-50%);  /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
-    left: 50%;                                  /*1. 왼쪽에서 50%위치에 둔다.*/
-                                                /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
-
+  content: ""; /*가상클래스 before, after는 무조건 content가 있어야 작동*/
+  position: absolute; /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%); /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
+  left: 50%; /*1. 왼쪽에서 50%위치에 둔다.*/
+  /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
 }
 
-.icon5:hover span{
-    opacity: 1;
-    visibility: visible;     /*hover시 발생하ㅡㄴ 이벤트*/
-   
+.icon5:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
 }
 
 .icon6 {
-    left: 26px;
-    width: 120px;         /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
-    height: 120px;
-    top: -510px;
-    /* margin: 10px; */
-    position: relative;
-    background-color: transparent;
-    border: 5px solid black;
-    border:none;
+  left: 26px;
+  width: 120px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 120px;
+  top: -510px;
+  /* margin: 10px; */
+  position: relative;
+  background-color: transparent;
+  border: 5px solid black;
+  border: none;
 }
 
-
-.icon6 span{
-    position: absolute;  /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
-    background-color: orange;
-    font-size: 16px;
-    width: 200px;
-    color : #fff;
-    top : -100px;
-    text-align: center;
-    padding: 10px;
-    border: none;
-    left: 50%;                    /*중앙배치 : 왼쪽에서 50%위치*/
-    transform: translateX(-50%);  /*중앙배치 : X크기값을 50%만큼 이동*/
-    opacity: 0;                   /*이벤트설정 : 서서히 변하게 함*/
-    transition: 0.5s;             /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
-    visibility: hidden;          /*특정 요소 접촉시 이벤트 발생*/
-
+.icon6 span {
+  position: absolute; /*어떤 요소에 absolute를 주면 블럭요소는 inline으로 변경됨.*/
+  background-color: orange;
+  font-size: 16px;
+  width: 200px;
+  color: #fff;
+  top: -100px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  left: 50%; /*중앙배치 : 왼쪽에서 50%위치*/
+  transform: translateX(-50%); /*중앙배치 : X크기값을 50%만큼 이동*/
+  opacity: 0; /*이벤트설정 : 서서히 변하게 함*/
+  transition: 0.5s; /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
 }
 
 .icon6 span:after {
-    content : '';             /*가상클래스 before, after는 무조건 content가 있어야 작동*/
-    position: absolute;       /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
-    background-color: transparent;
-    width : 10px;
-    height: 10px;
-    transform: rotate(45deg) translateX(-50%);  /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
-    left: 50%;  
-                         /*1. 왼쪽에서 50%위치에 둔다.*/
-                                                /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
-
+  content: ""; /*가상클래스 before, after는 무조건 content가 있어야 작동*/
+  position: absolute; /*상위클래스icon이 relative이므로, absolute로 설정하여 동적페이지에도 같은 위치로 유지*/
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%); /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
+  left: 50%;
+  /*1. 왼쪽에서 50%위치에 둔다.*/
+  /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
 }
 
-.icon6:hover span{
-    opacity: 1;
-    visibility: visible;     /*hover시 발생하ㅡㄴ 이벤트*/
-   
+.icon6:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
 }
 
 @font-face {
-    font-family: 'TheJamsil5Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "TheJamsil5Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
