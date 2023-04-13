@@ -7,8 +7,6 @@ export default class Timer {
     this.ctx = this.canvas.getContext("2d");
     this.canvas.id = "timer";
     document.body.append(this.canvas);
-    // this.canvas = canvas;
-    // this.ctx = canvas.getContext("2d");
     this.canvas.width = 90;
     this.canvas.height = 90;
 
@@ -17,6 +15,7 @@ export default class Timer {
     this.centerY = this.canvas.height / 2;
     this.radius = 40;
     this.time = 120; // 2 minutes in seconds
+
     this.intervalId = null;
     this.startTimer();
   }
@@ -97,7 +96,7 @@ export default class Timer {
       //document.getElementById("gif").style.display = "block";
       // Redirect to mainPage.html after 5 seconds
       setTimeout(() => {
-        window.location.href = "/main2.html";
+        window.location.href = "/main.html";
       }, 5000);
     }
   }

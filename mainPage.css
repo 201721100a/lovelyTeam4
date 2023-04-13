@@ -1,31 +1,43 @@
 .mainBack {
-
-    background: url("img/main.png");
-    width: 1200px;
-    height: 800px;
-    background-repeat: no-repeat;
-
+  /* background: url("image/122.gif"); */
+  background: url("img/main/mainBackground.png");
+  width: 1300px;
+  height: 700px;
+  left: 500px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 .startbtn {
-    position: absolute;
-    width: 250px;
-    height: 70px;
-    top: 500px;
-    left: 540px;
-
-    background: url("img/시작.png");
-    background-size: cover;
+  position: absolute;
+  width: 250px;
+  height: 70px;
+  top: 500px;
+  left: 540px;
+  background: url("img/main/시작.png");
+  background-size: cover;
 }
 
 .helpbtn {
-    position: absolute;
-    width: 250px;
-    height: 70px;
-    top: 600px;
-    left: 540px;
+  position: absolute;
+  width: 250px;
+  height: 70px;
+  top: 600px;
+  left: 540px;
 
+  background: url("img/main/도움말.png");
+  background-size: cover;
+}
 
-    background: url("img/도움말.png");
-    background-size: cover;
+.mainfont {
+  z-index: 999 auto;
+  background-image: url(img/main/main.gif);
+  background-size: 900px;
+  width: 1000px;
+  height: 1500px;
+  position: absolute;
+  top: 110px;
+  left: 190px;
+  background-repeat: no-repeat;
 }
