@@ -1,4 +1,4 @@
-import { compareMission } from "List";
+import { compareMission, missionList } from "List";
 import MissionResult from "MissionResult";
 export default class PaymentType {
   #canvas;
@@ -40,28 +40,18 @@ export default class PaymentType {
       this.#ctx.fillStyle = "white";
       this.#ctx.fillRect(10, 150, 580, 380);
       this.#ctx.drawImage(this.#typeImg1, 100, 240, 380, 250);
+      this.submitMission();
     }
 
     if (310 <= x && 300 <= y && x <= 460 && y <= 470) {
       this.#ctx.fillStyle = "white";
       this.#ctx.fillRect(10, 150, 580, 380);
       this.#ctx.drawImage(this.#typeImg2, 100, 240, 380, 250);
+      this.submitMission();
     }
 
     // this.#ctx.clearRect(300, 300, 170, 170);
     // 미션완료 추가
-    setTimeout(() => {
-      this.#ctx.fillStyle = "white";
-
-      this.#ctx.fillRect(10, 150, 580, 380);
-      if (compareMission()) {
-        console.log("성공");
-        let missionResult = new MissionResult(true);
-      } else {
-        console.log("실패");
-        let missionResult = new MissionResult(false);
-      }
-    }, 3000);
   }
 
   draw() {
@@ -71,5 +61,25 @@ export default class PaymentType {
     this.#ctx.globalAlpha = 1;
     this.#ctx.drawImage(this.#cancelImg, 10, 150, 580, 380);
     this.#ctx.drawImage(this.#typeImg, 520, 160, 50, 40);
+  }
+  submitMission() {
+    setTimeout(() => {
+      this.#ctx.fillStyle = "white";
+
+      this.#ctx.fillRect(10, 150, 580, 380);
+      if (compareMission() == missionList.length) {
+        console.log("성공");
+        console.log(missionList.lenght);
+        console.log(missionList);
+        console.log(compareMission());
+        let missionResult = new MissionResult(true);
+      } else {
+        console.log("실패");
+        console.log(missionList.lenght);
+        console.log(missionList);
+        console.log(compareMission());
+        let missionResult = new MissionResult(false);
+      }
+    }, 3000);
   }
 }

@@ -26,4 +26,7 @@ export default class Item {
   get id() {
     return this.#id;
   }
+  get won() {
+    return this.#price.toLocaleString();
+  }
 }

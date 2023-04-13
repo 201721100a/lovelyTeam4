@@ -47,7 +47,7 @@ export default class Kiosk {
     //this.#ctx.drawImage(this.#list, 15, 590, 450, 90);
     this.#ctx.drawImage(this.#logo2, 5, 5, 585, 85);
     this.#ctx.drawImage(this.#nlogo, 5, 5, 90, 90);
-    this.#ctx.drawImage(this.#payment, 490, 590, 100, 90);
+    this.#ctx.drawImage(this.#payment, 490, 590, 100, 107);
     this.#sound = new Audio("../sound/menuSelect.mp3");
     this.#menuSide = [];
     for (let x = 0; x < 5; x++) {
@@ -145,6 +145,7 @@ export default class Kiosk {
             this.#page = "set";
             this.#menuIndex = 36;
             this.drawItem(i);
+            draw;
             break;
         }
       }
@@ -159,6 +160,7 @@ export default class Kiosk {
         ) {
           console.log(i * 3 + j + "번 째 아이템 클릭됨");
           this.addShoppingList(menuList[this.#menuIndex + (i * 3 + j)]);
+          console.log(menuList[this.#menuIndex + (i * 3 + j)].won);
           this.#shoppingbag.createText(shoppingList);
         }
       }

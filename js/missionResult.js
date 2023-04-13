@@ -8,7 +8,8 @@ export default class MissionResult {
   #queryString;
   #params;
   #stage;
-
+  #missionClearSound;
+  #missionFailSound;
   constructor(isClear) {
     this.#canvas = document.createElement("canvas");
     this.#ctx = this.#canvas.getContext("2d");
@@ -28,6 +29,8 @@ export default class MissionResult {
     this.#isClear = isClear;
     this.goNextFromMission();
     this.#canvas.onclick = this.clickHandler.bind(this);
+    this.#missionClearSound = new Audio("../sound/missionClear.mp3");
+    this.#missionFailSound = new Audio("../sound/missionFail.mp3");
 
     // const params = new URLSearchParams({
     //   stage: this.#stage,
@@ -38,6 +41,7 @@ export default class MissionResult {
     let y = e.offsetY;
     console.log(x, y);
     if (this.#isClear == true) {
+      this.#missionClearSound.play();
       if (this.#stage == 2) {
         if (170 <= x && x <= 420 && 530 <= y && y <= 600) {
           window.location.href = `mainPage.html`;
@@ -56,6 +60,7 @@ export default class MissionResult {
       }
     }
     if (this.#isClear == false) {
+      this.#missionFailSound.play();
       if (170 <= x && x <= 430 && 440 <= y && y <= 520) {
         console.log("실패 링크");
         window.location.href = `mainPage.html`;

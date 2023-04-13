@@ -13,7 +13,6 @@ export default class Mission {
     this.ctx = this.canvas.getContext("2d");
     this.img = document.getElementById("mission");
 
-    document.body.append(this.canvas);
     this.canvas.id = "mission1";
     this.canvas.style.left = "200px";
     this.canvas.width = 1000;
@@ -26,7 +25,7 @@ export default class Mission {
       this.canvas.width,
       this.canvas.height
     );
-    this.ctx.font = "18px GmarketSansMedium, serif";
+    // this.ctx.font = "18px GmarketSansMedium, serif";
     this.stage = stage;
     this.creatRandomMission();
     let missionImg = document.getElementById("imt");
@@ -56,10 +55,10 @@ export default class Mission {
       this.canvas.style.left = "800px";
       this.canvas.style.top = "100px";
       document.body.append(this.canvas);
-      this.ctx.fillStyle = "white";
-      this.ctx.fillRect(0, 0, 200, 200);
+      let missionBoard = document.getElementById("missionBoard");
+      this.ctx.drawImage(missionBoard, -35, -80, 300, 400);
       this.ctx.fillStyle = "black";
-      this.ctx.fillText("MISSION", 50, 20);
+      // this.ctx.fillText("MISSION", 50, 20);
       this.printMission();
 
       this.draw();
@@ -68,10 +67,10 @@ export default class Mission {
   }
   printMission() {
     this.ctx.font = "15px GmarketSansMedium, serif";
-    this.ctx.fillText("제한 시간  2분안에", 20, 50);
+    this.ctx.fillText("제한 시간  2분안에", 28, 63);
     for (let idx in missionList) {
-      this.ctx.fillText(missionList[idx].name, 20, 70 + 20 * idx);
-      this.ctx.fillText(missionList[idx].index + " 개,", 150, 70 + 20 * idx);
+      this.ctx.fillText(missionList[idx].name, 28, 83 + 20 * idx);
+      this.ctx.fillText(missionList[idx].index + " 개,", 158, 83 + 20 * idx);
     }
   }
   please() {
@@ -85,19 +84,8 @@ export default class Mission {
     this.ctx.fillText("이렇게 사다줄 수 있엉?", 250, 450);
   }
   draw() {
-    this.printMission();
     this.ctx.font = "15px GmarketSansMedium, serif";
-    // if (this.stage == 0) {
-    //   console.log("s = 0" + missionList);
-    // } else if (this.stage == 1) {
-    //   missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
-    //   console.log("s = 1" + missionList);
-    // } else if (this.stage == 2) {
-    //   missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
-    //   missionList.push(m[Math.floor(Math.random() * 45)]);
-    //   console.log("s = 2" + missionList);
-    // }
-    this.ctx.fillText("를 모두 주문해주세요!", 20, 130 + this.stage * 20);
+    this.ctx.fillText("를 모두 주문해주세요!", 28, 183);
   }
 
   selectStage() {
@@ -117,6 +105,7 @@ export default class Mission {
     missionList.push(m[Math.floor(Math.random() * 9)]);
     missionList.push(m[Math.floor(Math.random() * 9 + 9)]);
     missionList.push(m[Math.floor(Math.random() * 18 + 18)]);
+
     for (let v of missionList) {
       v.index = Math.floor(Math.random() * 5 + 1);
       // console.log(v.index)
