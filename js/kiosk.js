@@ -26,6 +26,9 @@ export default class Kiosk {
 
     this.#menuIndex = 0;
 
+    let npc = document.createElement("div");
+    npc.id = "npc";
+    document.body.append(npc);
     this.#canvas.width = 600;
     this.#canvas.height = 700;
     this.#canvas.style.left = "200px";

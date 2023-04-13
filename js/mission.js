@@ -19,7 +19,13 @@ export default class Mission {
     this.canvas.width = 600;
     this.canvas.height = 700;
     this.isOrder = true;
-    this.ctx.drawImage(this.img, 0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.drawImage(
+      this.img,
+      0,
+      0,
+      this.canvas.width + 100,
+      this.canvas.height + 100
+    );
 
     this.stage = stage;
     this.creatRandomMission();

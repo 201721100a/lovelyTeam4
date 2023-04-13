@@ -2,6 +2,7 @@ img {
     display: none;
 }
 
+
 canvas {
     /* display: none; */
     position: absolute;
@@ -12,6 +13,17 @@ canvas {
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
     font-weight: bold;
     font-style: normal;
+}
+
+#npc {
+    width: 700px;
+    height: 700px;
+    /* top: -100px; */
+    left: 700px;
+    position: absolute;
+    background: url("../img/npc.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #listDiv {
