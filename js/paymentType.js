@@ -1,5 +1,5 @@
 import { compareMission } from "List";
-
+import MissionResult from "MissionResult";
 export default class PaymentType {
   #canvas;
   #ctx;
@@ -56,15 +56,17 @@ export default class PaymentType {
       this.#ctx.fillRect(10, 150, 580, 380);
       if (compareMission()) {
         console.log("성공");
+        let missionResult = new MissionResult(true);
       } else {
         console.log("실패");
+        let missionResult = new MissionResult(false);
       }
     }, 3000);
   }
 
   draw() {
     this.#ctx.fillStyle = "black";
-    this.#ctx.globalAlpha = 0.5;   
+    this.#ctx.globalAlpha = 0.5;
     this.#ctx.fillRect(0, 0, 600, 700);
     this.#ctx.globalAlpha = 1;
     this.#ctx.drawImage(this.#cancelImg, 10, 150, 580, 380);

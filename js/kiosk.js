@@ -18,17 +18,18 @@ export default class Kiosk {
   #payment;
   #shoppingbag;
   #paymentPage;
-
+  #timer;
+  #sound;
   constructor() {
     this.#canvas = document.createElement("canvas");
     this.#ctx = this.#canvas.getContext("2d");
-    document.body.append(this.#canvas);
 
     this.#menuIndex = 0;
 
     let npc = document.createElement("div");
     npc.id = "npc";
     document.body.append(npc);
+    document.body.append(this.#canvas);
     this.#canvas.width = 600;
     this.#canvas.height = 700;
     this.#canvas.style.left = "200px";
@@ -38,7 +39,8 @@ export default class Kiosk {
     this.#nlogo = document.getElementById("nlogo");
     this.#logo2 = document.getElementById("logo2");
     this.#payment = document.getElementById("payment");
-
+    this.#timer = new Timer();
+    this.#timer.drawTimer(2, 0);
     this.#ctx.fillStyle = "white";
     this.#ctx.fillRect(0, 0, 600, 700);
 
@@ -46,7 +48,7 @@ export default class Kiosk {
     this.#ctx.drawImage(this.#logo2, 5, 5, 585, 85);
     this.#ctx.drawImage(this.#nlogo, 5, 5, 90, 90);
     this.#ctx.drawImage(this.#payment, 490, 590, 100, 90);
-
+    this.#sound = new Audio("../sound/menuSelect.mp3");
     this.#menuSide = [];
     for (let x = 0; x < 5; x++) {
       this.#menuSide[x] = document.getElementById(`menuSide${x}`);
@@ -110,6 +112,7 @@ export default class Kiosk {
     console.log("shoppingLIst : " + shoppingList);
     console.log("mission : " + m);
     this.#shoppingbag.createText();
+    this.#sound.play();
     for (let i = 0; i < 5; i++) {
       if (
         15 <= x &&

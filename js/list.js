@@ -78,29 +78,5 @@ let compareMission = function () {
   }
   console.log(missionCount);
   return missionCount;
-  // let clear = 0;
-  // for (let m of missionList) {
-  //   console.log(m.name);
-  //   for (let i in tmpList) {
-  //     console.log(tmpList[i].name);
-  //     if (m.name == tmpList[i].name) {
-  //       console.log(`${tmpList[i].name} = ${m.name}`);
-  //       if (m.index == tmpList[i].index) {
-  //         console.log(`${tmpList[i].index} = ${m.index}`);
-  //         tmpList.splice(i, 1);
-  //         console.log("1개 일치");
-  //         console.log(clear);
-  //         clear++;
-  //       }
-  //     }
-  //   }
-  // }
-  // if (clear === 3) {
-  //   console.log("성공");
-  //   return true;
-  // } else {
-  //   console.log("실패");
-  //   return false;
-  // }
 };
 export { menuList, shoppingList, m, missionList, compareMission };

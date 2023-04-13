@@ -14,6 +14,7 @@ export default class PaymentPage {
   #choiceImg;
   #coordY;
   #spaceY;
+  #sound;
   constructor() {
     this.#canvas = document.createElement("canvas");
     this.#ctx = this.#canvas.getContext("2d");
@@ -31,7 +32,7 @@ export default class PaymentPage {
     this.#cancelImg = document.getElementById("cancel");
     this.#backImg = document.getElementById("back");
     this.#choiceImg = document.getElementById("choice");
-
+    this.#sound = new Audio("../sound/listSelect.mp3");
     this.draw();
     this.#canvas.onclick = this.clickHandler.bind(this);
   }
@@ -74,6 +75,7 @@ export default class PaymentPage {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log(x, y);
+    this.#sound.play();
     this.countMenu(x, y);
     this.removeCanvas(x, y);
     this.appendCanvas(x, y);

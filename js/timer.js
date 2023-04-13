@@ -1,3 +1,4 @@
+import MissionResult from "MissionResult";
 export default class Timer {
   canvas;
   ctx;
@@ -18,6 +19,7 @@ export default class Timer {
 
     this.intervalId = null;
     this.startTimer();
+    this.false = null;
   }
 
   drawTimer(minutes, seconds) {
@@ -86,18 +88,8 @@ export default class Timer {
     this.drawTimer(minutes, seconds);
 
     if (this.time === 0) {
+      this.false = new MissionResult(false);
       clearInterval(this.intervalId);
-      swal(
-        "미션 실패",
-        "주어진 시간 내에 미션을 완수하지 못했습니다.",
-        "error"
-      );
-      // Show the GIF
-      //document.getElementById("gif").style.display = "block";
-      // Redirect to mainPage.html after 5 seconds
-      setTimeout(() => {
-        window.location.href = "/main.html";
-      }, 5000);
     }
   }
 }
