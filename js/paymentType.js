@@ -1,4 +1,4 @@
-// import list from "./list.js";
+import { compareMission } from "List";
 
 export default class PaymentType {
   #canvas;
@@ -52,7 +52,13 @@ export default class PaymentType {
     // 미션완료 추가
     setTimeout(() => {
       this.#ctx.fillStyle = "white";
+
       this.#ctx.fillRect(10, 150, 580, 380);
+      if (compareMission()) {
+        console.log("성공");
+      } else {
+        console.log("실패");
+      }
     }, 3000);
   }
 

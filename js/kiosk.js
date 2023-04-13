@@ -1,6 +1,6 @@
 /**@type{HTMLCanvasElement} */
 
-import { menuList, shoppingList, compareMission } from "List";
+import { menuList, shoppingList, compareMission, m } from "List";
 import ShoppingBag from "ShoppingBag";
 import PaymentPage from "PaymentPage";
 import Timer from "Timer";
@@ -104,6 +104,8 @@ export default class Kiosk {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log("x : " + x + " y : " + y);
+    console.log("shoppingLIst : " + shoppingList);
+    console.log("mission : " + m);
     this.#shoppingbag.createText();
     for (let i = 0; i < 5; i++) {
       if (

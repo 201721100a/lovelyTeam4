@@ -46,47 +46,61 @@ var menuList = [
   new Item("불고기칠리세트", 9100, 43),
   new Item("핫크리스피세트", 7900, 44),
 ];
+
 let shoppingList = [];
+
+let m = menuList.map((item) => new Item(item.name, item.price, item.id));
 let missionList = [];
+console.log(menuList);
+console.log(m);
 
 let sort = function (list) {
-  list.sort((a, b) => b.id - a.id);
+  list.sort((a, b) => a.id - b.id);
 };
 
 let compareMission = function () {
   sort(shoppingList);
   sort(missionList);
-  this.tmpList = JSON.parse(JSON.stringify(shoppingList));
+  let missionCount = 0;
   console.log(missionList);
   console.log("mission c출력");
   console.log(shoppingList);
   console.log("shoppingList 출력");
 
-  console.log(tmpList);
-  console.log("list c출력");
+  if (shoppingList.length != missionList.length) return false;
 
-  let clear = 0;
-  for (let m of missionList) {
-    console.log(m.name);
-    for (let i in this.tmpList) {
-      console.log(this.tmpList[i].name);
-      if (m.name === this.tmpList[i].name) {
-        console.log(`${this.tmpList[i].name} = ${m.name}`);
-        if (m.index === this.tmpList[i].index) {
-          console.log(`${this.tmpList[i].index} = ${m.index}`);
-          this.tmpList.splice(i, 1);
-          console.log("1개 일치");
-          console.log(clear);
-          clear++;
-        }
+  for (let idx in shoppingList) {
+    if (shoppingList[idx].name == missionList[idx].name) {
+      if (shoppingList[idx].index == missionList[idx].index) {
+        missionCount++;
       }
     }
   }
-  if (clear === 4) {
-    return true;
-  } else {
-    return false;
-  }
+  console.log(missionCount);
+  return missionCount;
+  // let clear = 0;
+  // for (let m of missionList) {
+  //   console.log(m.name);
+  //   for (let i in tmpList) {
+  //     console.log(tmpList[i].name);
+  //     if (m.name == tmpList[i].name) {
+  //       console.log(`${tmpList[i].name} = ${m.name}`);
+  //       if (m.index == tmpList[i].index) {
+  //         console.log(`${tmpList[i].index} = ${m.index}`);
+  //         tmpList.splice(i, 1);
+  //         console.log("1개 일치");
+  //         console.log(clear);
+  //         clear++;
+  //       }
+  //     }
+  //   }
+  // }
+  // if (clear === 3) {
+  //   console.log("성공");
+  //   return true;
+  // } else {
+  //   console.log("실패");
+  //   return false;
+  // }
 };
-
-export { menuList, shoppingList, missionList, compareMission };
+export { menuList, shoppingList, m, missionList, compareMission };

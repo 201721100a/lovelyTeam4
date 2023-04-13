@@ -1,4 +1,4 @@
-import { menuList, shoppingList, missionList } from "List";
+import { m, shoppingList, missionList } from "List";
 import Kiosk from "Kiosk";
 
 export default class Mission {
@@ -6,7 +6,7 @@ export default class Mission {
   ctx;
   img;
   stage;
-  randomMenuList;
+  randommission;
   tmpList;
   constructor() {
     this.canvas = document.createElement("canvas");
@@ -79,11 +79,11 @@ export default class Mission {
     if (this.stage == 0) {
       console.log(missionList);
     } else if (this.stage == 1) {
-      missionList.push(menuList[Math.floor(Math.random() * 9 + 36)]);
-      console.log(missionList);
+      missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
+      console.log(m);
     } else if (this.stage == 2) {
-      missionList.push(menuList[Math.floor(Math.random() * 9 + 36)]);
-      missionList.push(menuList[Math.floor(Math.random() * 45)]);
+      missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
+      missionList.push(m[Math.floor(Math.random() * 45)]);
       console.log(missionList);
     }
     this.ctx.fillText("를 모두 주문해주세요!", 20, 150);
@@ -93,19 +93,19 @@ export default class Mission {
     if (this.stage == 0) {
       console.log(missionList);
     } else if (this.stage == 1) {
-      missionList.push(menuList[Math.floor(Math.random() * 9 + 36)]);
+      missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
       console.log(missionList);
     } else if (this.stage == 2) {
-      missionList.push(menuList[Math.floor(Math.random() * 9 + 36)]);
-      missionList.push(menuList[Math.floor(Math.random() * 45)]);
+      missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
+      missionList.push(m[Math.floor(Math.random() * 45)]);
       console.log(missionList);
     }
   }
 
   creatRandomMission() {
-    missionList.push(menuList[Math.floor(Math.random() * 9)]);
-    missionList.push(menuList[Math.floor(Math.random() * 9 + 9)]);
-    missionList.push(menuList[Math.floor(Math.random() * 18 + 18)]);
+    missionList.push(m[Math.floor(Math.random() * 9)]);
+    missionList.push(m[Math.floor(Math.random() * 9 + 9)]);
+    missionList.push(m[Math.floor(Math.random() * 18 + 18)]);
     for (let v of missionList) {
       v.index = Math.floor(Math.random() * 5 + 1);
       // console.log(v.index)
