@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+    <style>
+      #mainBackground {
+        position: absolute;
+        background: url("img/mainBackground2.png");
+        width: 1200px;
+        height: 800px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="importmap">
       {
@@ -25,6 +34,7 @@
     <script type="module" src="./js/main.js" defer="defer"></script>
   </head>
   <body>
+    <div id="mainBackground"></div>
     <img src="./img/mission/imt.png" id="imt" />
     <img src="./img/mission/mission.png" id="mission" />
     <img src="./img/kiosk/n_logo.png" id="nlogo" />

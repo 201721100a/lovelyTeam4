@@ -6,6 +6,7 @@ import Timer from "Timer";
 // import
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
+let stage = params.get("stage");
 
 for (let i = 0; i < 45; i++) {
   let idx = `${i}`;
@@ -14,7 +15,7 @@ for (let i = 0; i < 45; i++) {
   img.id = idx;
   document.body.append(img);
 }
-//stage = 0;
+
 window.onload = () => {
-  const mission = new Mission();
+  const mission = new Mission(stage);
 };
