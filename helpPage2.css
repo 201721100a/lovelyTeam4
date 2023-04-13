@@ -12,7 +12,7 @@ container {
   position: absolute;
   top: 740px;
   font-size: 50px;
-  left: 420px;
+  left: 580px;
   z-index: 999;
   background-size: 150px;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@ container {
   position: absolute;
   top: 740px;
   font-size: 50px;
-  left: 880px;
+  left: 1020px;
   z-index: 999;
   background-size: 150px;
   background-repeat: no-repeat;
@@ -66,7 +66,9 @@ container {
   padding: 10px;
   border: none;
   left: 50%; /*중앙배치 : 왼쪽에서 50%위치*/
-  transform: translateX(-50%); /*중앙배치 : X크기값을 50%만큼 이동*/
+  transform: translateX(
+    -50%
+  ); /*중앙배치 : X크기값을 50%만큼 이동 회전 크기 기울기등 */
   opacity: 0; /*이벤트설정 : 서서히 변하게 함*/
   transition: 0.5s; /*어떤 변화가 요청되면 0.5초뒤에 일어나자.*/
   visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/

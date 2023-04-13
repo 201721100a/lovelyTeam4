@@ -120,8 +120,7 @@ container {
   height: 10px;
   transform: rotate(45deg) translateX(-50%); /*transform은 한 요소에 1번밖에 못쓰므로 합쳐줘야함*/
   top: 500px;
-  left: 50%; /*1. 왼쪽에서 50%위치에 둔다.*/
-  /*2. 크기값을 50%만큼 이동시켜준다.->항상 중앙에 위치하게됨*/
+  left: 50%; 
 }
 
 .icon2:hover span {
