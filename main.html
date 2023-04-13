@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <style>
+      #mainBackground {
+        position: absolute;
+        background: url("img/mainBackground2.png");
+        width: 1200px;
+        height: 800px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="importmap">
       {
         "imports": {
@@ -16,20 +27,27 @@
           "PaymentPage": "./js/paymentPage.js",
           "PaymentType": "./js/paymentType.js",
           "Mission": "./js/mission.js",
-          "List": "./js/list.js"
+          "List": "./js/list.js",
+          "MissionResult": "./js/missionResult.js"
         }
       }
     </script>
     <script type="module" src="./js/main.js" defer="defer"></script>
   </head>
   <body>
+    <div id="mainBackground"></div>
     <img src="./img/mission/imt.png" id="imt" />
     <img src="./img/mission/mission.png" id="mission" />
-    <!-- <img src="" alt="" /> -->
+    <img src="./img/mission/missionBoard.png" id="missionBoard" />
     <img src="./img/kiosk/n_logo.png" id="nlogo" />
     <img src="./img/kiosk/Logo2.png" id="logo2" />
     <img src="./img/kiosk/list.png" id="list" />
     <img src="./img/kiosk/payment.png" id="payment" />
+    <img src="./img/kiosk/menuSide0.png" id="menuSide0" />
+    <img src="./img/kiosk/menuSide1.png" id="menuSide1" />
+    <img src="./img/kiosk/menuSide2.png" id="menuSide2" />
+    <img src="./img/kiosk/menuSide3.png" id="menuSide3" />
+    <img src="./img/kiosk/menuSide4.png" id="menuSide4" />
     <img src="./img/paymentPage/pay.png" id="pay" />
     <img src="./img/paymentPage/back.png" id="back" />
     <img src="./img/paymentPage/cancel.png" id="cancel" />
@@ -38,12 +56,10 @@
     <img src="./img/paymentPage/plus.png" id="plus" />
     <img src="./img/paymentType/paymentPage.png" id="paymentType" />
     <img src="./img/paymentType/paymentTypeCancel.png" id="paymentTypeCancel" />
-    <img src="./img/kiosk/menuSide0.png" id="menuSide0" />
-    <img src="./img/kiosk/menuSide1.png" id="menuSide1" />
-    <img src="./img/kiosk/menuSide2.png" id="menuSide2" />
-    <img src="./img/kiosk/menuSide3.png" id="menuSide3" />
-    <img src="./img/kiosk/menuSide4.png" id="menuSide4" />
-    <img src="./img/paymentType/카드삽입.PNG" id="cardType" />
-    <img src="./img/paymentType/바코드.PNG" id="QRType" />
+    <img src="./img/paymentType/card.png" id="cardType" />
+    <img src="./img/paymentType/barcode.png" id="QRType" />
+    <img src="./img/missionResult/clear.png" id="clear" />
+    <img src="./img/missionResult/fail.png" id="fail" />
+    <img src="./img/missionResult/gameClear.png" id="gameClear" />
   </body>
 </html>

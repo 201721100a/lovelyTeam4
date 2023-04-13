@@ -2,7 +2,43 @@ img {
     display: none;
 }
 
+
 canvas {
     /* display: none; */
     position: absolute;
+}
+
+@font-face {
+    font-family: "GmarketSansMedium";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+#npc {
+    width: 700px;
+    height: 700px;
+    /* top: -100px; */
+    left: 700px;
+    position: absolute;
+    background: url("../img/npc.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#listDiv {
+    top: 590px;
+    left: 210px;
+    width: 474px;
+    height: 110px;
+    overflow: scroll;
+    position: absolute;
+    background: url("../img/kiosk/list.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+#listDiv::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera*/
 }

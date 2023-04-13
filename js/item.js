@@ -3,10 +3,12 @@ export default class Item {
   #name;
   #price;
   #index;
-  constructor(name, price) {
+  #id;
+  constructor(name, price, id) {
     this.#name = name;
     this.#price = price;
     this.#index = 1;
+    this.#id = id;
   }
   get name() {
     return this.#name;
@@ -20,5 +22,11 @@ export default class Item {
 
   set index(num) {
     this.#index = num;
+  }
+  get id() {
+    return this.#id;
+  }
+  get won() {
+    return this.#price.toLocaleString();
   }
 }

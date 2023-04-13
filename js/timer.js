@@ -1,3 +1,4 @@
+import MissionResult from "MissionResult";
 export default class Timer {
   canvas;
   ctx;
@@ -10,7 +11,7 @@ export default class Timer {
     this.canvas.width = 90;
     this.canvas.height = 90;
 
-    this.canvas.style.left = "800px";
+    this.canvas.style.left = "867px";
     this.centerX = this.canvas.width / 2;
     this.centerY = this.canvas.height / 2;
     this.radius = 40;
@@ -18,10 +19,12 @@ export default class Timer {
 
     this.intervalId = null;
     this.startTimer();
+    this.false = null;
   }
 
   drawTimer(minutes, seconds) {
     // Draw background
+
     this.ctx.beginPath();
     this.ctx.arc(
       this.centerX,
@@ -31,22 +34,22 @@ export default class Timer {
       2 * Math.PI,
       false
     );
-    this.ctx.fillStyle = "#eee";
+    this.ctx.fillStyle = "#ffffff";
     this.ctx.fill();
 
     // Draw minutes arc
-    this.ctx.beginPath();
-    this.ctx.arc(
-      this.centerX,
-      this.centerY,
-      this.radius,
-      -Math.PI / 2,
-      (2 * Math.PI * minutes) / 60 - Math.PI / 2,
-      false
-    );
-    this.ctx.lineWidth = 15;
-    this.ctx.strokeStyle = "#ff9f1c";
-    this.ctx.stroke();
+    // this.ctx.beginPath();
+    // this.ctx.arc(
+    //   this.centerX,
+    //   this.centerY,
+    //   this.radius,
+    //   -Math.PI / 2,
+    //   (2 * Math.PI * minutes) / 60 - Math.PI / 2,
+    //   false
+    // );
+    // this.ctx.lineWidth = 15;
+    // this.ctx.strokeStyle = "#4d4d4d";
+    // this.ctx.stroke();
 
     // Draw seconds arc
     this.ctx.beginPath();
@@ -59,12 +62,12 @@ export default class Timer {
       false
     );
     this.ctx.lineWidth = 7;
-    this.ctx.strokeStyle = "#4d4d4d";
+    this.ctx.strokeStyle = "#323232";
     this.ctx.stroke();
 
     // Draw text
     this.ctx.font = "30px Arial";
-    this.ctx.fillStyle = "#4d4d4d";
+    this.ctx.fillStyle = "#000000";
     this.ctx.textAlign = "center";
     this.ctx.fillText(
       `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`,
@@ -86,18 +89,8 @@ export default class Timer {
     this.drawTimer(minutes, seconds);
 
     if (this.time === 0) {
+      this.false = new MissionResult(false);
       clearInterval(this.intervalId);
-      swal(
-        "미션 실패",
-        "주어진 시간 내에 미션을 완수하지 못했습니다.",
-        "error"
-      );
-      // Show the GIF
-      //document.getElementById("gif").style.display = "block";
-      // Redirect to mainPage.html after 5 seconds
-      setTimeout(() => {
-        window.location.href = "/main.html";
-      }, 5000);
     }
   }
 }

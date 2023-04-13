@@ -14,6 +14,7 @@ export default class PaymentPage {
   #choiceImg;
   #coordY;
   #spaceY;
+  #sound;
   constructor() {
     this.#canvas = document.createElement("canvas");
     this.#ctx = this.#canvas.getContext("2d");
@@ -31,7 +32,7 @@ export default class PaymentPage {
     this.#cancelImg = document.getElementById("cancel");
     this.#backImg = document.getElementById("back");
     this.#choiceImg = document.getElementById("choice");
-
+    this.#sound = new Audio("../sound/listSelect.mp3");
     this.draw();
     this.#canvas.onclick = this.clickHandler.bind(this);
   }
@@ -74,6 +75,7 @@ export default class PaymentPage {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log(x, y);
+    this.#sound.play();
     this.countMenu(x, y);
     this.removeCanvas(x, y);
     this.appendCanvas(x, y);
@@ -125,7 +127,8 @@ export default class PaymentPage {
       ); // 메뉴이름 출력
 
       this.#ctx.fillText(
-        "\\ " + shoppingList[i].price * shoppingList[i].index,
+        "\\ " +
+          (shoppingList[i].price * shoppingList[i].index).toLocaleString(),
         350,
         this.#coordY + 35 + this.#spaceY * i
       );
@@ -161,7 +164,7 @@ export default class PaymentPage {
     }
     this.#ctx.font = "23px GmarketSansMedium, serif";
     this.#ctx.fillText(
-      " 합계금액 :  \\  " + newTotalPrice,
+      " 합계금액 :  \\  " + newTotalPrice.toLocaleString(),
       315,
       this.#spaceY * 10 - 60
     ); // 메뉴 총액 출력

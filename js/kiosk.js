@@ -1,7 +1,10 @@
 /**@type{HTMLCanvasElement} */
 
-import { menuList, shoppingList } from "List";
+import { menuList, shoppingList, compareMission, m } from "List";
 import ShoppingBag from "ShoppingBag";
+import PaymentPage from "PaymentPage";
+import Timer from "Timer";
+import Mission from "Mission";
 export default class Kiosk {
   #canvas;
   #ctx;
@@ -14,31 +17,42 @@ export default class Kiosk {
   #logo2;
   #payment;
   #shoppingbag;
-
+  #paymentPage;
+  #timer;
+  #sound;
+  #npcSound;
   constructor() {
     this.#canvas = document.createElement("canvas");
     this.#ctx = this.#canvas.getContext("2d");
-    document.body.append(this.#canvas);
 
     this.#menuIndex = 0;
 
+    let npc = document.createElement("div");
+    npc.id = "npc";
+    document.body.append(npc);
+    document.body.append(this.#canvas);
     this.#canvas.width = 600;
     this.#canvas.height = 700;
     this.#canvas.style.left = "200px";
     this.#canvas.style.top = "0";
     this.#canvas.style.position = "absolute";
-
-    this.#list = document.getElementById("list");
     this.#nlogo = document.getElementById("nlogo");
     this.#logo2 = document.getElementById("logo2");
     this.#payment = document.getElementById("payment");
-    this.#ctx.drawImage(this.#list, 15, 590, 450, 90);
+
+    this.#timer = new Timer();
+    this.#timer.drawTimer(2, 0);
+    this.#ctx.fillStyle = "white";
+    this.#ctx.fillRect(0, 0, 600, 700);
+    this.#npcSound = new Audio("../sound/gameStart.mp3");
+    this.#npcSound.play();
+    //this.#ctx.drawImage(this.#list, 15, 590, 450, 90);
     this.#ctx.drawImage(this.#logo2, 5, 5, 585, 85);
     this.#ctx.drawImage(this.#nlogo, 5, 5, 90, 90);
-    this.#ctx.drawImage(this.#payment, 490, 590, 100, 90);
-
+    this.#ctx.drawImage(this.#payment, 490, 590, 100, 107);
+    this.#sound = new Audio("../sound/menuSelect.mp3");
     this.#menuSide = [];
-    for (let x = 1; x < 6; x++) {
+    for (let x = 0; x < 5; x++) {
       this.#menuSide[x] = document.getElementById(`menuSide${x}`);
     }
 
@@ -49,11 +63,29 @@ export default class Kiosk {
       this.#menu[x] = document.getElementById(`${x}`);
     }
 
+    this.drawItem(this.#menuIndex);
     this.#canvas.onclick = this.clickHandler.bind(this);
 
+    let div = document.createElement("div");
+    div.id = "listDiv";
     this.#shoppingbag = new ShoppingBag();
+
+    div.appendChild(this.#shoppingbag.canvas);
+    document.body.append(div);
   }
 
+  // set createCanvas(callback){
+  //   this.#createCanvas = callback;
+  // }
+
+  // createInstance(){
+  //   if(this.#createCanvas){
+  //     const paymentPage = this.#createCanvas("PaymentPage");
+  //     const shoppingBag = this.#createCanvas("ShoppingBag");
+  //     const timer =this.#createCanvas("Timer");
+  //     }
+
+  // }
   icon = {
     x: 210,
     y: 110,
@@ -79,7 +111,10 @@ export default class Kiosk {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log("x : " + x + " y : " + y);
-
+    console.log("shoppingLIst : " + shoppingList);
+    console.log("mission : " + m);
+    this.#shoppingbag.createText();
+    this.#sound.play();
     for (let i = 0; i < 5; i++) {
       if (
         15 <= x &&
@@ -112,6 +147,7 @@ export default class Kiosk {
             this.#page = "set";
             this.#menuIndex = 36;
             this.drawItem(i);
+            draw;
             break;
         }
       }
@@ -126,9 +162,14 @@ export default class Kiosk {
         ) {
           console.log(i * 3 + j + "번 째 아이템 클릭됨");
           this.addShoppingList(menuList[this.#menuIndex + (i * 3 + j)]);
+          console.log(menuList[this.#menuIndex + (i * 3 + j)].won);
           this.#shoppingbag.createText(shoppingList);
         }
       }
+    this.#shoppingbag.createText(shoppingList);
+
+    if (490 <= x && x <= 590 && 590 <= y && y <= 680)
+      this.#paymentPage = new PaymentPage();
   }
 
   drawSideBar(index) {
@@ -138,6 +179,8 @@ export default class Kiosk {
       this.#canvas.width,
       480
     );
+    this.#ctx.fillStyle = "white";
+    this.#ctx.fillRect(this.sideBar.x, this.sideBar.y, this.#canvas.width, 480);
     this.#ctx.drawImage(this.#menuSide[index], 0, 100, 585, 480);
   }
 
@@ -172,6 +215,10 @@ export default class Kiosk {
 
   addShoppingList(item) {
     var b1 = item;
+    if (shoppingList.length == 6) {
+      swal("장바구니가 꽉찼습니다.", "더이상 추가할 수 없습니다.", "warning");
+      return;
+    }
     console.log(b1);
     if (shoppingList.some((x) => x.name == b1.name) == false)
       shoppingList.push(item);
