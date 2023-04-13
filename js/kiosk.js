@@ -20,6 +20,7 @@ export default class Kiosk {
   #paymentPage;
   #timer;
   #sound;
+  #npcSound;
   constructor() {
     this.#canvas = document.createElement("canvas");
     this.#ctx = this.#canvas.getContext("2d");
@@ -35,15 +36,16 @@ export default class Kiosk {
     this.#canvas.style.left = "200px";
     this.#canvas.style.top = "0";
     this.#canvas.style.position = "absolute";
-    // this.#list = document.getElementById("list");
     this.#nlogo = document.getElementById("nlogo");
     this.#logo2 = document.getElementById("logo2");
     this.#payment = document.getElementById("payment");
+
     this.#timer = new Timer();
     this.#timer.drawTimer(2, 0);
     this.#ctx.fillStyle = "white";
     this.#ctx.fillRect(0, 0, 600, 700);
-
+    this.#npcSound = new Audio("../sound/gameStart.mp3");
+    this.#npcSound.play();
     //this.#ctx.drawImage(this.#list, 15, 590, 450, 90);
     this.#ctx.drawImage(this.#logo2, 5, 5, 585, 85);
     this.#ctx.drawImage(this.#nlogo, 5, 5, 90, 90);
