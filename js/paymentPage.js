@@ -126,7 +126,8 @@ export default class PaymentPage {
       ); // 메뉴이름 출력
 
       this.#ctx.fillText(
-        "\\ " + shoppingList[i].price * shoppingList[i].index,
+        "\\ " +
+          (shoppingList[i].price * shoppingList[i].index).toLocaleString(),
         350,
         this.#coordY + 35 + this.#spaceY * i
       );
@@ -161,7 +162,7 @@ export default class PaymentPage {
     }
     this.#ctx.font = "23px GmarketSansMedium, serif";
     this.#ctx.fillText(
-      " 합계금액 :  \\  " + newTotalPrice,
+      " 합계금액 :  \\  " + newTotalPrice.toLocaleString(),
       315,
       this.#spaceY * 10 - 60
     ); // 메뉴 총액 출력

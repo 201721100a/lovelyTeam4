@@ -6,19 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="helpPage3.css" />
-    <script>
-      // URL에서 쿼리 스트링을 가져옴
-      const urlParams = new URLSearchParams(window.location.search);
-      const audioFile = urlParams.get("audio");
-
-      // <audio> 태그 생성
-      const audio = document.createElement("audio");
-      audio.src = audioFile;
-      audio.autoplay = true;
-
-      // <body>에 <audio> 태그 추가
-      document.body.appendChild(audio);
-    </script>
   </head>
   <body>
     <section class="pic">
@@ -48,13 +35,8 @@
         </button>
       </div>
     </section>
-    <audio src="audio_file.mp3" autoplay></audio>
-    <a type="button" class="btn2" href="mainPage?audio=audio_file.mp3.html"></a>
-    <a
-      type="button"
-      class="btn1"
-      href="helpPage2?audio=audio_file.mp3.html"
-    ></a>
+    <a type="button" class="btn2" href="mainPage.html"></a>
+    <a type="button" class="btn1" href="helpPage2.html"></a>
 
     <div class="helpAbout"></div>
   </body>
