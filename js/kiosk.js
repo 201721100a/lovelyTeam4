@@ -4,7 +4,6 @@ import { menuList, shoppingList, compareMission, m } from "List";
 import ShoppingBag from "ShoppingBag";
 import PaymentPage from "PaymentPage";
 import Timer from "Timer";
-import Mission from "Mission";
 export default class Kiosk {
   #canvas;
   #ctx;
@@ -74,18 +73,6 @@ export default class Kiosk {
     document.body.append(div);
   }
 
-  // set createCanvas(callback){
-  //   this.#createCanvas = callback;
-  // }
-
-  // createInstance(){
-  //   if(this.#createCanvas){
-  //     const paymentPage = this.#createCanvas("PaymentPage");
-  //     const shoppingBag = this.#createCanvas("ShoppingBag");
-  //     const timer =this.#createCanvas("Timer");
-  //     }
-
-  // }
   icon = {
     x: 210,
     y: 110,
@@ -110,9 +97,6 @@ export default class Kiosk {
   clickHandler(e) {
     let x = e.offsetX;
     let y = e.offsetY;
-    console.log("x : " + x + " y : " + y);
-    console.log("shoppingLIst : " + shoppingList);
-    console.log("mission : " + m);
     this.#shoppingbag.createText();
     this.#sound.play();
     for (let i = 0; i < 5; i++) {
@@ -160,9 +144,7 @@ export default class Kiosk {
           x <= 210 + j * 125 + 100 &&
           y <= 110 + i * 150 + 150
         ) {
-          console.log(i * 3 + j + "번 째 아이템 클릭됨");
           this.addShoppingList(menuList[this.#menuIndex + (i * 3 + j)]);
-          console.log(menuList[this.#menuIndex + (i * 3 + j)].won);
           this.#shoppingbag.createText(shoppingList);
         }
       }
@@ -219,7 +201,6 @@ export default class Kiosk {
       swal("장바구니가 꽉찼습니다.", "더이상 추가할 수 없습니다.", "warning");
       return;
     }
-    console.log(b1);
     if (shoppingList.some((x) => x.name == b1.name) == false)
       shoppingList.push(item);
     else {

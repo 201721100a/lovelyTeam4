@@ -74,7 +74,6 @@ export default class PaymentPage {
   clickHandler(e) {
     let x = e.offsetX;
     let y = e.offsetY;
-    console.log(x, y);
     this.#sound.play();
     this.countMenu(x, y);
     this.removeCanvas(x, y);
@@ -139,7 +138,6 @@ export default class PaymentPage {
       ); //인덱스 출력
 
       newTotalPrice += shoppingList[i].price * shoppingList[i].index;
-      console.log(newTotalPrice);
 
       this.#ctx.drawImage(
         this.#minusImg,

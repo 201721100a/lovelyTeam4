@@ -18,7 +18,7 @@ export default class ShoppingBag {
     return this.#canvas;
   }
   createText = function (shoppingList) {
-    console.log(shoppingList);
+    // console.log(shoppingList);
     this.#ctx.clearRect(0, 0, 450, 1000);
     for (const i in shoppingList) {
       const s = shoppingList[i];

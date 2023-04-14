@@ -69,14 +69,10 @@ export default class PaymentType {
       this.#ctx.fillRect(10, 150, 580, 380);
       if (compareMission() == missionList.length) {
         console.log("성공");
-        console.log(missionList.lenght);
-        console.log(missionList);
         console.log(compareMission());
         let missionResult = new MissionResult(true);
       } else {
         console.log("실패");
-        console.log(missionList.lenght);
-        console.log(missionList);
         console.log(compareMission());
         let missionResult = new MissionResult(false);
       }

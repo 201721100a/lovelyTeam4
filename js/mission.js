@@ -90,14 +90,14 @@ export default class Mission {
 
   selectStage() {
     if (this.stage == 0) {
-      console.log("s = 0" + missionList);
+      // console.log("s = 0" + missionList);
     } else if (this.stage == 1) {
       missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
-      console.log("s = 1" + missionList);
+      // console.log("s = 1" + missionList);
     } else if (this.stage == 2) {
       missionList.push(m[Math.floor(Math.random() * 9 + 36)]);
       missionList.push(m[Math.floor(Math.random() * 45)]);
-      console.log("s = 2" + missionList);
+      // console.log("s = 2" + missionList);
     }
   }
 

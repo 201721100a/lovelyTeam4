@@ -51,8 +51,6 @@ let shoppingList = [];
 
 let m = menuList.map((item) => new Item(item.name, item.price, item.id));
 let missionList = [];
-console.log(menuList);
-console.log(m);
 
 let sort = function (list) {
   list.sort((a, b) => a.id - b.id);
@@ -62,10 +60,10 @@ let compareMission = function () {
   sort(shoppingList);
   sort(missionList);
   let missionCount = 0;
-  console.log(missionList);
-  console.log("mission c출력");
-  console.log(shoppingList);
-  console.log("shoppingList 출력");
+  // console.log(missionList);
+  // console.log("mission c출력");
+  // console.log(shoppingList);
+  // console.log("shoppingList 출력");
 
   if (shoppingList.length != missionList.length) return false;
 
@@ -76,7 +74,7 @@ let compareMission = function () {
       }
     }
   }
-  console.log(missionCount);
+  // console.log(missionCount);
   return missionCount;
 };
 export { menuList, shoppingList, m, missionList, compareMission };
